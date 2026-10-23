@@ -1,0 +1,87 @@
+{
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "license": "MIT",
+  "author": "FrankFMY",
+  "homepage": "https://github.com/FrankFMY/state-motion#readme",
+  "bugs": { "url": "https://github.com/FrankFMY/state-motion/issues" },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/FrankFMY/state-motion.git"
+  },
+  "engines": {
+    "node": ">=24"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE",
+    "THIRD_PARTY_NOTICES.md"
+  ],
+  "sideEffects": false,
+  "name": "@frankfmy/state-motion-svelte",
+  "description": "Svelte 5 rune adapters, loading and presence for state-motion.",
+  "svelte": "./dist/index.svelte.js",
+  "exports": {
+    ".": {
+      "types": "./dist/index.svelte.d.ts",
+      "svelte": "./dist/index.svelte.js"
+    },
+    "./habitat": {
+      "types": "./dist/habitat.d.ts",
+      "svelte": "./dist/habitat.js"
+    },
+    "./loader": {
+      "types": "./dist/loader.d.ts",
+      "svelte": "./dist/loader.js"
+    },
+    "./presence-animator": {
+      "types": "./dist/presence-animator.d.ts",
+      "svelte": "./dist/presence-animator.js"
+    },
+    "./transition": {
+      "types": "./dist/transition.d.ts",
+      "default": "./dist/transition.js"
+    },
+    "./slot-geometry": {
+      "types": "./dist/slot-geometry.d.ts",
+      "default": "./dist/slot-geometry.js"
+    },
+    "./__config": {
+      "types": "./dist/__config.d.ts",
+      "default": "./dist/__config.js"
+    },
+    "./child/types": {
+      "types": "./dist/child/types.d.ts",
+      "default": "./dist/child/types.js"
+    },
+    "./loader-props": {
+      "types": "./dist/loader-props.d.ts",
+      "default": "./dist/loader-props.js"
+    },
+    "./Loader.svelte": {
+      "types": "./dist/Loader.svelte.d.ts",
+      "svelte": "./dist/Loader.svelte"
+    },
+    "./child/Divided.svelte": {
+      "types": "./dist/child/Divided.svelte.d.ts",
+      "svelte": "./dist/child/Divided.svelte"
+    }
+  },
+  "dependencies": {
+    "csstype": "3.2.3"
+  },
+  "peerDependencies": {
+    "@frankfmy/state-motion": "0.1.0",
+    "svelte": "5.57.0"
+  },
+  "peerDependenciesMeta": {
+    "@frankfmy/state-motion": {
+      "optional": true
+    }
+  },
+  "scripts": {
+    "build": "svelte-package -i src -o dist"
+  }
+}

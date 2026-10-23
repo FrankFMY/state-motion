@@ -1,0 +1,40 @@
+{
+  "name": "state-motion-workspace",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "license": "MIT",
+  "packageManager": "bun@1.4.2",
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "lint": "oxlint --deny-warnings packages scripts tests",
+    "check": "node node_modules/@typescript/native/bin/tsc --noEmit -p tsconfig.json && svelte-check --tsgo --workspace packages/svelte --tsconfig ./tsconfig.json --fail-on-warnings",
+    "test:unit": "bun test packages/core/src packages/svelte/src",
+    "test:presence": "vitest run",
+    "test": "bun run test:unit && bun run test:presence",
+    "build": "node scripts/build.mjs",
+    "pack": "node scripts/pack.mjs",
+    "test:consumers": "node scripts/consumers.mjs",
+    "verify": "bun run lint && bun run check && bun run test && bun run build && bun run pack && bun run test:consumers && bun run test:clean",
+    "test:clean": "node scripts/clean-build.mjs"
+  },
+  "devDependencies": {
+    "@frankfmy/state-motion": "workspace:*",
+    "@frankfmy/state-motion-svelte": "workspace:*",
+    "@sveltejs/package": "3.0.1",
+    "@sveltejs/vite-plugin-svelte": "7.3.1",
+    "svelte": "5.57.0",
+    "typescript": "6.0.3",
+    "svelte-check": "4.7.7",
+    "vite": "8.3.5",
+    "vitest": "5.0.5",
+    "@playwright/test": "1.63.0",
+    "@types/bun": "1.4.4",
+    "@types/node": "24.10.1",
+    "oxlint": "1.89.0",
+    "csstype": "3.2.3",
+    "@typescript/native": "npm:typescript@7.0.2"
+  }
+}

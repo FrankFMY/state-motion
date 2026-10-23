@@ -1,0 +1,82 @@
+{
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "license": "MIT",
+  "author": "FrankFMY",
+  "homepage": "https://github.com/FrankFMY/state-motion#readme",
+  "bugs": { "url": "https://github.com/FrankFMY/state-motion/issues" },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/FrankFMY/state-motion.git"
+  },
+  "engines": {
+    "node": ">=24"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE",
+    "THIRD_PARTY_NOTICES.md"
+  ],
+  "sideEffects": false,
+  "name": "@frankfmy/state-motion",
+  "description": "Framework-neutral state slots and demand-driven interpolation.",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    },
+    "./render": {
+      "types": "./dist/habitat/render.d.ts",
+      "default": "./dist/habitat/render.js"
+    },
+    "./server": {
+      "types": "./dist/habitat/server/index.d.ts",
+      "default": "./dist/habitat/server/index.js"
+    },
+    "./server/render": {
+      "types": "./dist/habitat/server/render.d.ts",
+      "default": "./dist/habitat/server/render.js"
+    },
+    "./__config": {
+      "types": "./dist/habitat/__config.d.ts",
+      "default": "./dist/habitat/__config.js"
+    },
+    "./color": {
+      "types": "./dist/color/index.d.ts",
+      "default": "./dist/color/index.js"
+    },
+    "./color/oklch": {
+      "types": "./dist/color/oklch.d.ts",
+      "default": "./dist/color/oklch.js"
+    },
+    "./color/state": {
+      "types": "./dist/color/state.d.ts",
+      "default": "./dist/color/state.js"
+    },
+    "./color/__config": {
+      "types": "./dist/color/__config.d.ts",
+      "default": "./dist/color/__config.js"
+    },
+    "./vector3": {
+      "types": "./dist/vector3/index.d.ts",
+      "default": "./dist/vector3/index.js"
+    },
+    "./vector3/types": {
+      "types": "./dist/vector3/types.d.ts",
+      "default": "./dist/vector3/types.js"
+    },
+    "./vector3/states": {
+      "types": "./dist/vector3/states/index.d.ts",
+      "default": "./dist/vector3/states/index.js"
+    },
+    "./vector3/__config": {
+      "types": "./dist/vector3/__config.d.ts",
+      "default": "./dist/vector3/__config.js"
+    }
+  },
+  "scripts": {
+    "build": "node ../../node_modules/@typescript/native/bin/tsc -p tsconfig.build.json"
+  }
+}

@@ -1,0 +1,13 @@
+import assert from 'node:assert/strict';
+import { readFile, writeFile } from 'node:fs/promises';
+import { compileModule } from 'svelte/compiler';
+await assert.rejects(import('@frankfmy/state-motion'));
+const source = await readFile(new URL(import.meta.resolve('@frankfmy/state-motion-svelte')), 'utf8');
+const compiled = compileModule(source, { filename: 'state.svelte.js', generate: 'server' });
+await writeFile(new URL('./compiled-state.mjs', import.meta.url), compiled.js.code);
+const api = await import('./compiled-state.mjs');
+const value = api.createSvelteState(3); value.set(7); assert.equal(value.get(), 7);
+assert.equal(api.createSvelteDerived(() => value.signal * 2).get(), 14);
+const raw = { n: 1 }; assert.equal(api.createSvelteRawProxy(raw), raw);
+assert.equal(typeof api.createSvelteRoot(() => {}), 'function');
+console.log('SVELTE_ROOT_WITHOUT_CORE_PASS: real server compiler, all root exports available');
