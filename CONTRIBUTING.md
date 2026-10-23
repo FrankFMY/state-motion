@@ -25,7 +25,8 @@ It does not claim to test a remote Git clone. The dependency-isolation step temp
 `node_modules` and restores it; do not run another build concurrently.
 
 Keep generated output, tarballs, browser evidence and local reports out of Git.
-Use `.fixtures/` and `.artifacts/` for local verification. Never embed machine
+Packed-consumer projects use isolated temporary directories (`TMPDIR` when set);
+source-clean-build fixtures use `.fixtures/`, and archives use `.artifacts/`. Never embed machine
 paths, tokens, private contacts or unrelated project data in source, tests or
 documentation. Use synthetic fixtures.
 
