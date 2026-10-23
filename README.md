@@ -45,7 +45,9 @@ bun x playwright install chromium webkit
 
 `bun run pack` writes both tarballs to a new directory under `.artifacts/` and
 records filenames, SHA-256 hashes and contents in `.artifacts/latest.json`.
-Consumer work directories are ignored under `.fixtures/`. The consumer harness
+Packed-consumer projects use unique temporary directories outside the checkout's
+dependency hierarchy; `TMPDIR` can select their parent. Source-clean-build fixtures
+remain ignored under `.fixtures/`. The consumer harness
 temporarily moves this checkout's `node_modules` while testing dependency
 isolation and restores it in `finally`; run it without another build using that
 directory. It owns and closes its local HTTP servers. Download/install checks use a

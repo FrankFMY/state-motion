@@ -1,14 +1,16 @@
 import assert from 'node:assert/strict';
 import { createHash, randomUUID } from 'node:crypto';
-import { cpSync, existsSync, mkdirSync, readFileSync, readdirSync, realpathSync, renameSync, statfsSync, writeFileSync } from 'node:fs';
+import { cpSync, existsSync, mkdirSync, mkdtempSync, readFileSync, readdirSync, realpathSync, renameSync, statfsSync, writeFileSync } from 'node:fs';
 import { resolve, join, relative, dirname } from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import { spawn, spawnSync } from 'node:child_process';
 import { once } from 'node:events';
+import { tmpdir } from 'node:os';
 
 const root = fileURLToPath(new URL('..', import.meta.url));
 const attempt = `${new Date().toISOString().replaceAll(':', '-')}-${randomUUID().slice(0, 8)}`;
-const work = resolve(root, '.fixtures', attempt);
+// A core-only consumer must not resolve optional peers from the development checkout.
+const work = realpathSync(mkdtempSync(join(tmpdir(), 'state-motion-consumers-')));
 const evidence = resolve(process.argv[2] ?? join(work, 'evidence'), attempt);
 mkdirSync(work, { recursive: true }); mkdirSync(evidence, { recursive: true });
 const disk = statfsSync(root); assert(disk.bavail * disk.bsize >= 10 * 1024 ** 3, 'Consumer allocation requires 10 GiB free');
