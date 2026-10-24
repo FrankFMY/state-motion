@@ -25,3 +25,12 @@ Install the tarball from a published GitHub release asset, or build a local
 checkout. Registry publication is not assumed. See the
 [repository README](https://github.com/FrankFMY/state-motion#readme) for exact
 commands, behavior, supported versions and limitations.
+
+## Author and contact
+
+Created and maintained by [Artem Prianishnikov (Артем Прянишников / FrankFMY)](https://github.com/FrankFMY).
+
+- Email: [Pryanishnikovartem@gmail.com](mailto:Pryanishnikovartem@gmail.com)
+- Telegram: [@FrankFMY](https://t.me/FrankFMY)
+- Website: [frankfmy.com](https://frankfmy.com)
+- Profiles: [GitHub](https://github.com/FrankFMY) · [LinkedIn](https://www.linkedin.com/in/frankfmy/) · [X](https://x.com/FrankFMY)
