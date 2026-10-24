@@ -28,13 +28,13 @@
     },
     "packages/svelte": {
       "name": "@frankfmy/state-motion-svelte",
-      "version": "0.1.1",
+      "version": "0.1.2",
       "dependencies": {
         "csstype": "3.2.3",
       },
       "peerDependencies": {
         "@frankfmy/state-motion": "0.1.1",
-        "svelte": "5.57.0",
+        "svelte": "~5.57.0",
       },
       "optionalPeers": [
         "@frankfmy/state-motion",

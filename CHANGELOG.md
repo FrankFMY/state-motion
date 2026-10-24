@@ -1,5 +1,13 @@
 # Changelog
 
+## state-motion-svelte 0.1.2
+
+- Accept Svelte 5.57.x patches (`~5.57.0`) instead of requiring exactly 5.57.0.
+- Retain the tested 5.57.0 minimum and optional core peer 0.1.1; no runtime or
+  declaration changes and no new core version.
+- Exercise ordinary all-six npm resolution and shared Svelte 5.57.2 types, SSR,
+  Chromium/WebKit hydration, SVG plugin/Icon rendering and lifecycle teardown.
+
 ## 0.1.1
 
 - Prepare public npm distribution with explicit registry and access metadata.

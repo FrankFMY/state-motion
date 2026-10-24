@@ -1,0 +1,24 @@
+import { test, expect } from '@playwright/test';
+test('shared Svelte hydrates motion and generated external SVG, reacts and tears down both', async ({ page, request }) => {
+ const errors = [];
+ page.on('pageerror', (error) => errors.push(String(error)));
+ page.on('console', (message) => { if (['error', 'warning'].includes(message.type())) errors.push(message.text()); });
+ const html = await (await request.get('/')).text();
+ expect(html).toContain('Combined circle'); expect(html).toMatch(/icons\.svg#circle/);
+ await page.goto('/'); await page.waitForFunction(() => Boolean(window.demo));
+ expect(await page.evaluate(() => window.__sameNode && window.__sameIcon)).toBe(true);
+ const icon = page.getByRole('img', { name: 'Combined circle' });
+ await expect(icon).toBeVisible(); await expect(icon).toHaveAttribute('width', '48');
+ const use = icon.locator('use'); await expect(use).toHaveAttribute('href', /icons\.svg#circle$/);
+ const sprite = await request.get((await use.getAttribute('href')).split('#')[0]);
+ expect(sprite.ok()).toBe(true); expect(await sprite.text()).toContain('id="circle"');
+ await expect.poll(() => icon.evaluate((node) => node.getBBox().width)).toBeGreaterThan(0);
+ await page.getByTestId('counter').click(); await expect(page.getByTestId('counter')).toHaveText('Count: 1; doubled: 2');
+ await page.getByTestId('swap-icon').click(); await expect(use).toHaveAttribute('href', /icons\.svg#square$/);
+ await expect.poll(() => icon.evaluate((node) => node.getBBox().height)).toBeGreaterThan(0);
+ await page.evaluate(() => window.__unmount());
+ await expect(page.getByRole('region', { name: 'Sprite composition' })).toHaveCount(0);
+ await expect(page.locator('main')).toHaveCount(0);
+ expect(await page.evaluate(() => window.demo.status())).toMatchObject({ disposed: true, pending: 0, frame: 0 });
+ expect(errors).toEqual([]);
+});

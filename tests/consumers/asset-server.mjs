@@ -1,8 +1,9 @@
 import { createServer } from 'node:http';
 import { readFile } from 'node:fs/promises';
-import { resolve, join } from 'node:path';
+import { resolve, join, basename } from 'node:path';
 const directory = resolve(process.argv[2]);
-const names = new Set(['frankfmy-state-motion-0.1.1.tgz', 'frankfmy-state-motion-svelte-0.1.1.tgz']);
+const artifacts = JSON.parse(await readFile(join(directory, 'manifest.json'), 'utf8'));
+const names = new Set(artifacts.map((artifact) => basename(artifact.path)));
 const prefix = '/FrankFMY/state-motion/releases/download/v0.1.1/';
 const server = createServer(async (request, response) => {
  const url = new URL(request.url, 'http://localhost');
