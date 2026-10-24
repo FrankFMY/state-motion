@@ -14,11 +14,13 @@
     "check": "node node_modules/@typescript/native/bin/tsc --noEmit -p tsconfig.json && svelte-check --tsgo --workspace packages/svelte --tsconfig ./tsconfig.json --fail-on-warnings",
     "test:unit": "bun test packages/core/src packages/svelte/src",
     "test:presence": "vitest run",
-    "test": "bun run test:unit && bun run test:presence",
+    "test": "bun run test:unit && bun run test:presence && bun run test:asset-transport",
+    "test:asset-transport": "node --test tests/asset-transport.test.mjs",
     "build": "node scripts/build.mjs",
     "pack": "node scripts/pack.mjs",
     "test:consumers": "node scripts/consumers.mjs",
-    "verify": "bun run lint && bun run check && bun run test && bun run build && bun run pack && bun run test:consumers && bun run test:clean",
+    "test:peers": "node scripts/peer-compatibility.mjs",
+    "verify": "bun run lint && bun run check && bun run test && bun run build && bun run pack && bun run test:consumers && bun run test:peers && bun run test:clean",
     "test:clean": "node scripts/clean-build.mjs"
   },
   "devDependencies": {

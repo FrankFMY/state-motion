@@ -46,6 +46,13 @@ jobs:
         run: bun --no-env-file install --frozen-lockfile
       - name: Install pinned Chromium, WebKit and system dependencies
         run: bun x --no-install playwright install --with-deps chromium webkit
+      - name: Prepare sealed SVG SSR counterpart
+        run: |
+          SVG_TARBALL="$CI_TEMP/frankfmy-svg-sprite-toolkit-0.1.3.tgz"
+          curl --fail --location --output "$SVG_TARBALL" \
+            https://github.com/FrankFMY/svg-sprite-toolkit/releases/download/v0.1.3/frankfmy-svg-sprite-toolkit-0.1.3.tgz
+          printf '%s  %s\n' a05baed2c3c27c9a802aee8cb0efb4e1e3332eb2a9ebd7a4e7ae245347e057ac "$SVG_TARBALL" | sha256sum --check
+          printf 'STATE_MOTION_SVG_TARBALL=%s\n' "$SVG_TARBALL" >> "$GITHUB_ENV"
       - name: Full verify including source, packed consumers, SSR, browsers and clean rebuild
         run: bun --no-env-file run verify 2>&1 | tee "$CI_TEMP/verify.log"
       - name: Dependency audit
@@ -60,6 +67,7 @@ jobs:
           path: |
             ${{ env.CI_TEMP }}/*.log
             ${{ env.CI_TEMP }}/state-motion-consumers-*/evidence/**
+            ${{ env.CI_TEMP }}/state-motion-peers-*/evidence/**
             .fixtures/clean-*/clean-build-result.json
             .artifacts/**/frankfmy-*.tgz
           include-hidden-files: true

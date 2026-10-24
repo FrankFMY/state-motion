@@ -12,26 +12,41 @@ lifecycle utilities I use with them.
 | Package | Purpose | Runtime requirements |
 | --- | --- | --- |
 | [@frankfmy/state-motion](https://www.npmjs.com/package/@frankfmy/state-motion) | State, scheduler, numbers, OKLCH, 3D vectors | ESM; no runtime dependencies |
-| [@frankfmy/state-motion-svelte](https://www.npmjs.com/package/@frankfmy/state-motion-svelte) | Rune adapters, loading, presence, snippets, slot measurements | Svelte 5.57.0 and a Svelte compiler |
+| [@frankfmy/state-motion-svelte](https://www.npmjs.com/package/@frankfmy/state-motion-svelte) | Rune adapters, loading, presence, snippets, slot measurements | Svelte ~5.57.0 and a Svelte compiler |
 
 ## Install from npm
 
-Both packages are available on npm at version **0.1.1**, licensed under MIT.
+The MIT packages have independent versions: core **0.1.1**, Svelte adapter
+**0.1.2**. The adapter correction changes only its Svelte peer range; core and
+runtime implementations are unchanged.
 Install core without a UI framework:
 
 ```sh
 npm install @frankfmy/state-motion@0.1.1
 ```
 
-For Svelte, install the separate adapter with its tested peer:
+For Svelte, install the separate adapter with a tested peer:
 
 ```sh
-npm install @frankfmy/state-motion-svelte@0.1.1 svelte@5.57.0
+npm install @frankfmy/state-motion-svelte@0.1.2 svelte@5.57.2
 ```
 
 Add core 0.1.1 as well when importing `/habitat`. Other adapter entries work
 without core. Source builds and the older, immutable **v0.1.0** GitHub assets
-below remain alternatives; they are a different version from npm 0.1.1.
+below remain alternatives; they are different versions from the current packages.
+
+The adapter accepts the Svelte **5.57.x** patch series (`~5.57.0`), with
+5.57.0 and 5.57.2 exercised explicitly. This is not a claim for 5.58 or 6.
+For a shared application with the SVG renderer, use Svelte 5.57.2:
+
+```sh
+npm install @frankfmy/state-motion@0.1.1 @frankfmy/state-motion-svelte@0.1.2 \
+  @frankfmy/svg-sprite-toolkit@0.1.3 svelte@5.57.2 vite@7.3.7
+```
+
+Use `@sveltejs/vite-plugin-svelte@6.2.1` with this Vite 7 combination. The
+SVG package has its own Vite peer range; the standalone adapter also supports
+the Vite 8 toolchain pinned in this checkout.
 
 ## Build a checkout
 
@@ -98,7 +113,7 @@ Require a successful checksum check; use an equivalent SHA-256 verifier on
 platforms without `sha256sum`.
 The Svelte root import works without core. Install **both** assets to use
 `@frankfmy/state-motion-svelte/habitat`; these v0.1.0 assets use core peer `0.1.0`.
-Current source and registry version 0.1.1 use matching core peer `0.1.1`.
+The current adapter 0.1.2 still uses optional core peer `0.1.1`.
 For a local build, substitute the paths recorded by `bun run pack` for downloaded
 filenames. No registry command for either library is required.
 
@@ -191,10 +206,15 @@ See the [API and export mapping](docs/API.md), [behavior details](docs/BEHAVIOR.
 
 ## Validation scope
 
-The local gates target Node 24.20.0 and Bun 1.4.2, Svelte 5.57.0 SSR, and real
+The gates target Node 24.20.0 and Bun 1.4.2, Svelte 5.57.0 SSR, and real
 Chromium and WebKit hydration through Playwright 1.63.0. They check packed ESM,
 emitted declarations, positive and negative component props, Loader lifecycle,
 color/vector interpolation, presence cleanup and native resize observation.
+The additional `test:peers` gate uses ordinary npm resolution for all six
+related packages, minimum-version root isolation, and a clean Svelte 5.57.2
+application with core 0.1.1 and svg-sprite-toolkit 0.1.3. Its generated SVG
+plugin, Icon, motion, types, SSR, hydration and teardown run together in both
+browsers without resolver overrides.
 Browser layout assertions cover loader fallback CSS, absolute/fixed positioning,
 custom size classes and theme variables. No Firefox or older-runtime support is
 claimed. The package engine range is broader than the exact tested patch version.
@@ -207,15 +227,17 @@ animation-performance benchmark claim. See the CI runs for per-revision results.
 [CI runs](https://github.com/FrankFMY/state-motion/actions/workflows/ci.yml) run on
 pull requests, pushes to `main`, and manual dispatch. Node 24.20.0 and Bun 1.4.2
 execute the full `bun run verify` gate: source and packed unit/presence tests,
-core/Svelte dependency isolation, types, SSR, Chromium/WebKit consumers and the
-clean-source rebuild, followed by a dependency audit. Logs and consumer receipts
-are retained for seven days. CI does not publish either package.
+core/Svelte dependency isolation, types, SSR, Chromium/WebKit consumers,
+shared-Svelte npm composition and clean-source rebuild, followed by a dependency
+audit. CI downloads the checksum-pinned SVG 0.1.3 GitHub release artifact for
+composition; the default local peer gate uses its npm package. Logs and consumer
+receipts are retained for seven days. CI does not publish either package.
 
 ## Author and contact
 
 Created and maintained by [Artem Prianishnikov (Артем Прянишников / FrankFMY)](https://github.com/FrankFMY).
 
-- Email: [Pryanishnikovartem@gmail.com](mailto:Pryanishnikovartem@gmail.com)
+- Email: [Pryanishnikovartem@gmail.com](mailto:Pryanishnikovartem@gmail.com) · [frankfmy@proton.me](mailto:frankfmy@proton.me)
 - Telegram: [@FrankFMY](https://t.me/FrankFMY)
 - Website: [frankfmy.com](https://frankfmy.com)
 - Profiles: [GitHub](https://github.com/FrankFMY) · [LinkedIn](https://www.linkedin.com/in/frankfmy/) · [X](https://x.com/FrankFMY) · [npm](https://www.npmjs.com/~frankfmy)
