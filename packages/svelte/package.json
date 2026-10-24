@@ -3,7 +3,7 @@
   "private": true,
   "type": "module",
   "license": "MIT",
-  "author": "FrankFMY",
+  "author": { "name": "Artem Prianishnikov", "email": "Pryanishnikovartem@gmail.com", "url": "https://frankfmy.com" },
   "homepage": "https://github.com/FrankFMY/state-motion#readme",
   "bugs": { "url": "https://github.com/FrankFMY/state-motion/issues" },
   "repository": {

@@ -2,6 +2,7 @@
   "name": "state-motion-workspace",
   "version": "0.1.0",
   "private": true,
+  "author": { "name": "Artem Prianishnikov", "email": "Pryanishnikovartem@gmail.com", "url": "https://frankfmy.com" },
   "type": "module",
   "license": "MIT",
   "packageManager": "bun@1.4.2",

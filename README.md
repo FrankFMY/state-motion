@@ -186,9 +186,14 @@ claimed. The package engine range is broader than the exact tested patch version
 These are correctness and compatibility gates. There is no heap, throughput or
 animation-performance benchmark claim, and no hosted-CI success claim.
 
-## Author
+## Author and contact
 
-[Artem Prianishnikov (FrankFMY)](https://github.com/FrankFMY).
+Created and maintained by [Artem Prianishnikov (Артем Прянишников / FrankFMY)](https://github.com/FrankFMY).
+
+- Email: [Pryanishnikovartem@gmail.com](mailto:Pryanishnikovartem@gmail.com)
+- Telegram: [@FrankFMY](https://t.me/FrankFMY)
+- Website: [frankfmy.com](https://frankfmy.com)
+- Profiles: [GitHub](https://github.com/FrankFMY) · [LinkedIn](https://www.linkedin.com/in/frankfmy/) · [X](https://x.com/FrankFMY)
 
 ## License
 
