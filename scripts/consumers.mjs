@@ -65,7 +65,7 @@ try {
   for (const artifact of Object.values(packages)) {
    const filename = artifact.path.split('/').at(-1);
    const path = join(downloads, filename);
-   run('curl', ['--fail', '--location', '--output', path, `http://127.0.0.1:${address.port}/FrankFMY/state-motion/releases/download/v0.1.0/${filename}`], work);
+   run('curl', ['--fail', '--location', '--output', path, `http://127.0.0.1:${address.port}/FrankFMY/state-motion/releases/download/v0.1.1/${filename}`], work);
    assert.equal(createHash('sha256').update(readFileSync(path)).digest('hex'), artifact.sha256);
    artifact.downloadedPath = path;
   }

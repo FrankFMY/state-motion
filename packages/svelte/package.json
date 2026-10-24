@@ -1,6 +1,7 @@
 {
-  "version": "0.1.0",
-  "private": true,
+  "version": "0.1.1",
+  "private": false,
+  "publishConfig": { "access": "public", "registry": "https://registry.npmjs.org/" },
   "type": "module",
   "license": "MIT",
   "author": { "name": "Artem Prianishnikov", "email": "Pryanishnikovartem@gmail.com", "url": "https://frankfmy.com" },
@@ -73,7 +74,7 @@
     "csstype": "3.2.3"
   },
   "peerDependencies": {
-    "@frankfmy/state-motion": "0.1.0",
+    "@frankfmy/state-motion": "0.1.1",
     "svelte": "5.57.0"
   },
   "peerDependenciesMeta": {

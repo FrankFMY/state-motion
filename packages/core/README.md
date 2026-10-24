@@ -1,7 +1,7 @@
 # @frankfmy/state-motion
 
 Framework-neutral state slots, a demand-driven frame scheduler, and number,
-OKLCH color and 3D vector interpolation. Version 0.1.0, MIT, ESM only.
+OKLCH color and 3D vector interpolation. Version 0.1.1, MIT, ESM only.
 No runtime dependencies. Node 24 and Bun 1.4 are the supported server runtimes.
 
 ```js
@@ -21,8 +21,15 @@ Color: `/color` (`OKLCH`, `ColorState`). Vector: `/vector3` (`UC3`) and
 `/vector3/states` (`C3S`). Configs: `/__config`, `/color/__config`, `/vector3/__config`.
 Framework adapters are optional and distributed separately.
 
-Install the tarball from a published GitHub release asset, or build a local
-checkout. Registry publication is not assumed. See the
+Check the exact npm registry version before installing:
+
+```sh
+npm view @frankfmy/state-motion@0.1.1 version &&
+npm install @frankfmy/state-motion@0.1.1
+```
+
+Registry publication is separate from verification. Source builds and older
+versioned GitHub archives remain alternatives. See the
 [repository README](https://github.com/FrankFMY/state-motion#readme) for exact
 commands, behavior, supported versions and limitations.
 

@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.1.1
+
+- Prepare public npm distribution with explicit registry and access metadata.
+- Document exact registry-version checks while preserving older GitHub archive installation.
+- Keep the two state-motion packages and their optional core peer on matching versions.
+- No runtime, declaration, dependency implementation or public API changes.
+
 ## 0.1.0
 
 - Introduce framework-neutral state, scheduler and server renderer with separate

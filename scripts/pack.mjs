@@ -22,7 +22,7 @@ for (const name of ['core', 'svelte']) {
  }
  for (const required of ['package.json', 'README.md', 'LICENSE', 'THIRD_PARTY_NOTICES.md']) assert(names.includes(required));
  const manifest = JSON.parse(readFileSync(`packages/${name}/package.json`, 'utf8'));
- assert.equal(manifest.private, true);
+ assert.equal(manifest.private, false);
  for (const key of ['dependencies', 'optionalDependencies', 'peerDependencies']) {
   for (const version of Object.values(manifest[key] ?? {})) assert(!version.startsWith('workspace:'));
  }
