@@ -184,7 +184,16 @@ custom size classes and theme variables. No Firefox or older-runtime support is
 claimed. The package engine range is broader than the exact tested patch version.
 
 These are correctness and compatibility gates. There is no heap, throughput or
-animation-performance benchmark claim, and no hosted-CI success claim.
+animation-performance benchmark claim. See the CI runs for per-revision results.
+
+## Continuous integration
+
+[CI runs](https://github.com/FrankFMY/state-motion/actions/workflows/ci.yml) run on
+pull requests, pushes to `main`, and manual dispatch. Node 24.20.0 and Bun 1.4.2
+execute the full `bun run verify` gate: source and packed unit/presence tests,
+core/Svelte dependency isolation, types, SSR, Chromium/WebKit consumers and the
+clean-source rebuild, followed by a dependency audit. Logs and consumer receipts
+are retained for seven days. CI does not publish either package.
 
 ## Author and contact
 
