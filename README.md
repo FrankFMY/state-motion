@@ -11,27 +11,27 @@ lifecycle utilities I use with them.
 
 | Package | Purpose | Runtime requirements |
 | --- | --- | --- |
-| `@frankfmy/state-motion` | State, scheduler, numbers, OKLCH, 3D vectors | ESM; no runtime dependencies |
-| `@frankfmy/state-motion-svelte` | Rune adapters, loading, presence, snippets, slot measurements | Svelte 5.57.0 and a Svelte compiler |
+| [@frankfmy/state-motion](https://www.npmjs.com/package/@frankfmy/state-motion) | State, scheduler, numbers, OKLCH, 3D vectors | ESM; no runtime dependencies |
+| [@frankfmy/state-motion-svelte](https://www.npmjs.com/package/@frankfmy/state-motion-svelte) | Rune adapters, loading, presence, snippets, slot measurements | Svelte 5.57.0 and a Svelte compiler |
 
-Version 0.1.1 is MIT licensed and configured for public npm distribution.
-Check the exact registry version before installing core:
+## Install from npm
+
+Both packages are available on npm at version **0.1.1**, licensed under MIT.
+Install core without a UI framework:
 
 ```sh
-npm view @frankfmy/state-motion@0.1.1 version &&
 npm install @frankfmy/state-motion@0.1.1
 ```
 
-For Svelte, check and install the separate adapter with its tested peer:
+For Svelte, install the separate adapter with its tested peer:
 
 ```sh
-npm view @frankfmy/state-motion-svelte@0.1.1 version &&
 npm install @frankfmy/state-motion-svelte@0.1.1 svelte@5.57.0
 ```
 
 Add core 0.1.1 as well when importing `/habitat`. Other adapter entries work
-without core. Registry publication is separate from verification; source builds
-and the immutable v0.1.0 GitHub assets below remain alternatives.
+without core. Source builds and the older, immutable **v0.1.0** GitHub assets
+below remain alternatives; they are a different version from npm 0.1.1.
 
 ## Build a checkout
 
