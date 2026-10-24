@@ -1,5 +1,6 @@
 node_modules/
 packages/*/dist/
+packages/*/.svelte-check/
 .artifacts/
 .fixtures/
 *.tsbuildinfo
