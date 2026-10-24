@@ -2,8 +2,8 @@ import { createServer } from 'node:http';
 import { readFile } from 'node:fs/promises';
 import { resolve, join } from 'node:path';
 const directory = resolve(process.argv[2]);
-const names = new Set(['frankfmy-state-motion-0.1.0.tgz', 'frankfmy-state-motion-svelte-0.1.0.tgz']);
-const prefix = '/FrankFMY/state-motion/releases/download/v0.1.0/';
+const names = new Set(['frankfmy-state-motion-0.1.1.tgz', 'frankfmy-state-motion-svelte-0.1.1.tgz']);
+const prefix = '/FrankFMY/state-motion/releases/download/v0.1.1/';
 const server = createServer(async (request, response) => {
  const url = new URL(request.url, 'http://localhost');
  const name = url.pathname.slice(prefix.length);

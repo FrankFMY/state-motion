@@ -14,9 +14,24 @@ lifecycle utilities I use with them.
 | `@frankfmy/state-motion` | State, scheduler, numbers, OKLCH, 3D vectors | ESM; no runtime dependencies |
 | `@frankfmy/state-motion-svelte` | Rune adapters, loading, presence, snippets, slot measurements | Svelte 5.57.0 and a Svelte compiler |
 
-Version 0.1.0 is MIT licensed. Both package manifests keep `private: true` to prevent
-accidental registry publication. Installation uses local tarballs or GitHub release assets;
-this project does not assume that either package exists on npm.
+Version 0.1.1 is MIT licensed and configured for public npm distribution.
+Check the exact registry version before installing core:
+
+```sh
+npm view @frankfmy/state-motion@0.1.1 version &&
+npm install @frankfmy/state-motion@0.1.1
+```
+
+For Svelte, check and install the separate adapter with its tested peer:
+
+```sh
+npm view @frankfmy/state-motion-svelte@0.1.1 version &&
+npm install @frankfmy/state-motion-svelte@0.1.1 svelte@5.57.0
+```
+
+Add core 0.1.1 as well when importing `/habitat`. Other adapter entries work
+without core. Registry publication is separate from verification; source builds
+and the immutable v0.1.0 GitHub assets below remain alternatives.
 
 ## Build a checkout
 
@@ -82,7 +97,8 @@ bun add ./frankfmy-state-motion-svelte-0.1.0.tgz svelte@5.57.0
 Require a successful checksum check; use an equivalent SHA-256 verifier on
 platforms without `sha256sum`.
 The Svelte root import works without core. Install **both** assets to use
-`@frankfmy/state-motion-svelte/habitat`; its optional core peer is exactly `0.1.0`.
+`@frankfmy/state-motion-svelte/habitat`; these v0.1.0 assets use core peer `0.1.0`.
+Current source and registry version 0.1.1 use matching core peer `0.1.1`.
 For a local build, substitute the paths recorded by `bun run pack` for downloaded
 filenames. No registry command for either library is required.
 
