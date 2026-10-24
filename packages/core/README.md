@@ -21,15 +21,14 @@ Color: `/color` (`OKLCH`, `ColorState`). Vector: `/vector3` (`UC3`) and
 `/vector3/states` (`C3S`). Configs: `/__config`, `/color/__config`, `/vector3/__config`.
 Framework adapters are optional and distributed separately.
 
-Check the exact npm registry version before installing:
+Version **0.1.1** is available as [@frankfmy/state-motion on npm](https://www.npmjs.com/package/@frankfmy/state-motion).
 
 ```sh
-npm view @frankfmy/state-motion@0.1.1 version &&
 npm install @frankfmy/state-motion@0.1.1
 ```
 
-Registry publication is separate from verification. Source builds and older
-versioned GitHub archives remain alternatives. See the
+Source builds and older, immutable v0.1.0 GitHub archives remain alternatives;
+they are a different version from npm 0.1.1. See the
 [repository README](https://github.com/FrankFMY/state-motion#readme) for exact
 commands, behavior, supported versions and limitations.
 

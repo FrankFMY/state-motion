@@ -20,15 +20,14 @@ Root state, `/loader`, `/presence-animator`, `/transition`, `/slot-geometry`,
 `createSvelteRoot` returns its cleanup function; dispose owned roots, call
 `PresenceAnimator.destroy()` and `LoaderStore.reset()` when the owner unmounts.
 
-Check the exact npm registry version before installing:
+Version **0.1.1** is available as [@frankfmy/state-motion-svelte on npm](https://www.npmjs.com/package/@frankfmy/state-motion-svelte).
 
 ```sh
-npm view @frankfmy/state-motion-svelte@0.1.1 version &&
 npm install @frankfmy/state-motion-svelte@0.1.1 svelte@5.57.0
 ```
 
-Registry publication is separate from verification. Source builds and older
-versioned GitHub archives remain alternatives. The
+Source builds and older, immutable v0.1.0 GitHub archives remain alternatives;
+they are a different version from npm 0.1.1. The
 [repository README](https://github.com/FrankFMY/state-motion#readme) covers all
 exports, installation, CSS customization, behavior and limitations.
 
